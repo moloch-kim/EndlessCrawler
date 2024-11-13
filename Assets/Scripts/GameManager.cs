@@ -1,10 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {  get; private set; }
+    public bool isExplore = true;
 
     private void Awake()
     {
@@ -18,12 +19,13 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
-    public bool isExplore = true;
+    private void Start()
+    {
+        Explore(); 
+    }
 
     public void Explore()
     {
         isExplore = true;
     }
-
 }

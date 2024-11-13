@@ -7,11 +7,15 @@ using UnityEngine.Pool;
 
 public class InfiniteHallway : MonoBehaviour
 {
+    public delegate void OnExploreEventHandler();
+    public event OnExploreEventHandler OnExplore;
+
     public ObjectPool pool;
     public float spawnRate;
 
-    void Start()
+    public void Explore()
     {
+        OnExplore?.Invoke();
         StartCoroutine(CoSpawnObjects());
     }
 
