@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool isExplore;
+    public bool isExplore = true;
 
     public void Explore()
     {

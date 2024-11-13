@@ -6,7 +6,7 @@ public class Hallway : MonoBehaviour
 
     private void Update()
     {
-        while (true)
+        if (GameManager.Instance.isExplore)
         {
             transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
 

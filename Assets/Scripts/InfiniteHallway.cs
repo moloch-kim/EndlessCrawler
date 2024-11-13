@@ -17,19 +17,20 @@ public class InfiniteHallway : MonoBehaviour
 
     IEnumerator CoSpawnObjects()
     {
-        while (true)
+        while (GameManager.Instance.isExplore)
         {
             SpawnObject();
             yield return new WaitForSeconds(spawnRate);
         }
     }
+
     void SpawnObject()
     {
         GameObject obj = pool.GetObject();
 
         if (obj != null)
         {
-            obj.transform.position = transform.position;
+            obj.transform.position = new Vector3(transform.position.x, transform.position.y, +transform.position.z + 6f);
             obj.transform.rotation = transform.rotation;
             obj.SetActive(true);
         }
